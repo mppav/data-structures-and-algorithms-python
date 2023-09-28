@@ -15,6 +15,7 @@ class SinglyLinkedList:
     def append(self, data):
         # Encapsulate the data in a Node
         node = Node(data)
+        self.size += 1
         if self.head is None:
             self.head = node
         else:
@@ -58,6 +59,13 @@ class SinglyLinkedList:
                 return True
         return False
 
+    def __len__(self):
+        # return self.size
+        count = 0
+        for _ in self:
+            count += 1
+        return count
+    
 
 if __name__ == "__main__":
     words = SinglyLinkedList()
