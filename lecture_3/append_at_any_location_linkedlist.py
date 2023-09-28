@@ -32,17 +32,31 @@ class SinglyLinkedList:
             if count == 1:
                 node.next = current
                 self.head = node
-                print(count)
+                self.size += 1
+                # print(count)
                 return
             elif index == index:
                 node.next = current
                 prev.next = node
+                self.size += 1
                 return
             count += 1
             prev = current
             current = current.next
         if count < index:
             print("The list has less number of elements")
+    
+    def __iter__(self):
+        current = self.head
+        while current:
+            yield current.data
+            current = current.next
+
+    def __contains__(self, data):
+        for node in self:
+            if node == data:
+                return True
+        return False
 
 
 if __name__ == "__main__":
@@ -50,6 +64,7 @@ if __name__ == "__main__":
     words.append("egg")
     words.append("ham")
     words.append("spam")
+    print("="*10)
 
     current = words.head
     while current:
@@ -57,8 +72,14 @@ if __name__ == "__main__":
         current = current.next
 
     words.append_at_a_location("new", 2)
-
+    print("="*10)
     current = words.head
     while current:
         print(current.data)
         current = current.next
+    print("="*10)
+
+    print("new" in words)
+    print("gold" in words)
+    print("="*10)
+    
