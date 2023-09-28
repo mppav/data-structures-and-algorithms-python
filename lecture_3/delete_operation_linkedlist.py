@@ -24,11 +24,11 @@ class SinglyLinkedList:
             current.next = node
 
     def delete_first_node(self):
-        current = self.head
-        if self.head is None:
+        if not self.head:
             print("No data element to delete")
-        elif current == self.head:
-            self.head = current.next
+            return None
+        self.head = self.head.next
+        self.size -= 1
 
     def delete_last_node(self):
         if not self.head:
