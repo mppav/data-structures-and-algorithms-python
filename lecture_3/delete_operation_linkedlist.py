@@ -55,11 +55,10 @@ class SinglyLinkedList:
                 return
             prev = current
             current = current.next
-    
+
     def clear(self):
         self.head = None
         self.size = 0
-        
 
 
 if __name__ == "__main__":
