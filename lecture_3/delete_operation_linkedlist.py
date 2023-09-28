@@ -33,7 +33,7 @@ class SinglyLinkedList:
     def delete_last_node(self):
         if not self.head:
             print("No data element to delete")
-            return
+            return None
         current = self.head
         previous = None
         while current.next:
