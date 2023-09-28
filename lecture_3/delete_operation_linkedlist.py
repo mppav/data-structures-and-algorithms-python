@@ -31,14 +31,16 @@ class SinglyLinkedList:
             self.head = current.next
 
     def delete_last_node(self):
+        if not self.head:
+            print("No data element to delete")
+            return
         current = self.head
-        prev = self.head
-        while current:
-            if current.next is None:
-                prev.next = current.next
-                self.size -= 1
-            prev = current
+        previous = None
+        while current.next:
+            previous = current
             current = current.next
+        previous.next = None
+        self.size -= 1
 
     def delete(self, data):
         current = self.head
@@ -55,7 +57,7 @@ class SinglyLinkedList:
             current = current.next
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     words = SinglyLinkedList()
     words.append("egg")
     words.append("ham")
@@ -68,14 +70,12 @@ if __name__ == '__main__':
         print(current.data)
         current = current.next
 
-
     words.delete_last_node()
 
     current = words.head
     while current:
         print(current.data)
         current = current.next
-
 
     words.delete("ham")
     current = words.head
