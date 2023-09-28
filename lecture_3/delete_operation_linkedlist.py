@@ -57,7 +57,7 @@ class SinglyLinkedList:
             current = current.next
 
     def clear(self):
-        self.head = None
+        self.head = self.tail = None
         self.size = 0
 
 
